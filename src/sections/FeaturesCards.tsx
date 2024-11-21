@@ -82,7 +82,7 @@ export const FeaturesCards = () => {
                                     <p className="mt-4 text-lg text-zinc-400">
                                         {description}
                                     </p>
-                                    <div className="mt-12 flex justify-between">
+                                    <div className="mb-7 mt-12 flex justify-between md:mb-0">
                                         <button
                                             className={cn(
                                                 "font-heading text-sm font-extrabold uppercase tracking-wider text-fuchsia-500",
