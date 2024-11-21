@@ -1,3 +1,4 @@
+import { GhostButton } from "@/components/GhostButton.";
 import { cn } from "@/lib/utils";
 
 const cardsData = [
@@ -83,9 +84,8 @@ export const FeaturesCards = () => {
                                         {description}
                                     </p>
                                     <div className="mb-7 mt-12 flex justify-between md:mb-0">
-                                        <button
+                                        <GhostButton
                                             className={cn(
-                                                "font-heading text-sm font-extrabold uppercase tracking-wider text-fuchsia-500",
                                                 color === "lime" &&
                                                     "text-lime-500",
                                                 color === "cyan" &&
@@ -95,7 +95,7 @@ export const FeaturesCards = () => {
                                             )}
                                         >
                                             Learn more
-                                        </button>
+                                        </GhostButton>
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
