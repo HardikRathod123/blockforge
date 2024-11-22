@@ -7,7 +7,7 @@ export const HeaderSection = () => {
                 <div className="flex h-24 items-center justify-between md:h-28">
                     <div>
                         <img
-                            src="/public/assets/images/logo.svg"
+                            src="/assets/images/logo.svg"
                             alt="BlockForge logo"
                         />
                     </div>

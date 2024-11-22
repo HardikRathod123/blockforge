@@ -4,28 +4,28 @@ import path from "path";
 
 const cardsData = [
     {
-        image: "/public/assets/images/pill.png",
+        image: "/assets/images/pill.png",
         color: "fuchsia",
         title: "Revolutionary Blockchain API",
         description:
             "Effortlessly integrate and manage blockchain data with our cutting-edge API, designed for seamless connectivity.",
     },
     {
-        image: "/public/assets/images/cuboid.png",
+        image: "/assets/images/cuboid.png",
         color: "lime",
         title: "Decentralized data solutions",
         description:
             "Unlock the potential of decentralized data solutions with our innovative tools and services.",
     },
     {
-        image: "/public/assets/images/cone.png",
+        image: "/assets/images/cone.png",
         color: "cyan",
         title: "Next-gen smart contracts",
         description:
             "Create and deploy next-generation smart contracts with our powerful and intuitive platform.",
     },
     {
-        image: "/public/assets/images/icosahedron.png",
+        image: "/assets/images/icosahedron.png",
         color: "violet ",
         title: "Seamless blockchain integration",
         description:

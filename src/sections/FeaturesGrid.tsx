@@ -44,12 +44,12 @@ export const FeaturesGridSection = () => {
                         <div className="hidden md:block">
                             <div className="relative z-0 inline-flex">
                                 <img
-                                    src="/public/assets/images/torus-knot.png"
+                                    src="/assets/images/torus-knot.png"
                                     alt="Torus Know 3D image"
                                     className="size-96 max-w-none"
                                 />
                                 <img
-                                    src="/public/assets/images/hemisphere.png"
+                                    src="/assets/images/hemisphere.png"
                                     alt="Hemisphere 3D image"
                                     className="absolute top-3/4 -z-10 size-96 max-w-none -scale-x-[1]"
                                 />
@@ -60,12 +60,12 @@ export const FeaturesGridSection = () => {
                         <div className="relative hidden md:block">
                             <div className="absolute right-0 z-0">
                                 <img
-                                    src="/public/assets/images/cone.png"
+                                    src="/assets/images/cone.png"
                                     alt="Cone 3D image"
                                     className="size-96 max-w-none"
                                 />
                                 <img
-                                    src="/public/assets/images/hemisphere.png"
+                                    src="/assets/images/hemisphere.png"
                                     alt="Hemisphere 3D image"
                                     className="absolute top-3/4 -z-10"
                                 />

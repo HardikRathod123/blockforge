@@ -30,7 +30,7 @@ export const HeroSection = () => {
                         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                             <Circle className="absolute -top-[900px] left-[200px]">
                                 <img
-                                    src="/public/assets/images/cube.png"
+                                    src="/assets/images/cube.png"
                                     alt="Cube 3D image"
                                     className="size-[140px]"
                                 />
@@ -39,7 +39,7 @@ export const HeroSection = () => {
                         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                             <Circle className="absolute left-[200px] top-[270px]">
                                 <img
-                                    src="/public/assets/images/cuboid.png"
+                                    src="/assets/images/cuboid.png"
                                     alt="Cuboid 3D image"
                                     className="size-[140px]"
                                 />
@@ -48,19 +48,19 @@ export const HeroSection = () => {
                         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                             <Circle className="absolute -left-[600px] -top-[80px]">
                                 <img
-                                    src="/public/assets/images/torus.png"
+                                    src="/assets/images/torus.png"
                                     alt="Torus 3D image"
                                     className="size-[140px]"
                                 />
                             </Circle>
                         </div>
                         <img
-                            src="/public/assets/images/icosahedron.png"
+                            src="/assets/images/icosahedron.png"
                             alt="Icosahedron 3D image"
                             className="absolute left-1/2 top-1/2 -z-10 w-[calc(100%+100px)] max-w-none -translate-x-1/2 -translate-y-1/2 brightness-[4%] hue-rotate-[240deg] saturate-[10%]"
                         />
                         <img
-                            src="/public/assets/images/icosahedron.png"
+                            src="/assets/images/icosahedron.png"
                             alt="Icosahedron 3D image"
                             className="w-[500px]"
                         />
