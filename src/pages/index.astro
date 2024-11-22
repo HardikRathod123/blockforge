@@ -3,12 +3,23 @@ import { FeaturesCards } from "@/sections/FeaturesCards";
 import { FeaturesGridSection } from "@/sections/FeaturesGrid";
 import { HeaderSection } from "@/sections/Header";
 import { HeroSection } from "@/sections/Hero";
+import { LatestPosts } from "@/sections/LatestPosts";
+import { getCollection } from "astro:content";
 import DefaultLayout from "../layouts/Default.astro";
+
+const latestPosts = await getCollection('blog').then(posts =>
+  posts
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+    .slice(0, 4)
+);
 ---
+
+
 
 <DefaultLayout>
   <HeaderSection />
   <HeroSection />
   <FeaturesCards />
   <FeaturesGridSection />
+  <LatestPosts latestPosts={latestPosts}/>
 </DefaultLayout>
