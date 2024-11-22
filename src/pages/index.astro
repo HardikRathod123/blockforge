@@ -1,4 +1,5 @@
 ---
+import { CallToAction } from "@/sections/CallToAction";
 import { FeaturesCards } from "@/sections/FeaturesCards";
 import { FeaturesGridSection } from "@/sections/FeaturesGrid";
 import { HeaderSection } from "@/sections/Header";
@@ -24,4 +25,5 @@ const latestPosts = await getCollection('blog').then(posts =>
   <FeaturesGridSection />
   <LatestPosts latestPosts={latestPosts}/>
   <Testimonials />
+  <CallToAction />
 </DefaultLayout>
