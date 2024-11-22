@@ -1,3 +1,5 @@
+import { cn } from "@/lib/utils";
+
 const testimonials: {
     name: string;
     title: string;
@@ -8,7 +10,7 @@ const testimonials: {
         name: "Erica Wyatt",
         title: "Product Manager — BlockLink",
         avatar: "/public/assets/images/avatar-erica-wyatt.jpg",
-        text: "The user experience is phenomenal and the support team is always there to help. Highly recommended!",
+        text: "The user experience is phenomenal, and the support team is always there to help. Highly recommended!",
     },
     {
         name: "Noel Baldwin",
@@ -28,11 +30,16 @@ export const Testimonials = () => {
     return (
         <section className="bg-zinc-800 py-32">
             <div className="container">
-                <div className="grid grid-cols-1 gap-16">
+                <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-8 lg:grid-cols-3 lg:gap-12">
                     {testimonials.map(
                         ({ title, text, avatar, name }, index) => (
-                            <blockquote key={index}>
-                                <p className="font-heading text-3xl font-black">
+                            <blockquote
+                                key={index}
+                                className={cn(
+                                    index >= 2 && "md:hidden lg:block",
+                                )}
+                            >
+                                <p className="font-heading text-3xl font-black lg:text-4xl">
                                     &ldquo;{text}&rdquo;
                                 </p>
                                 <cite className="mt-8 block not-italic">
