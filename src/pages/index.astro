@@ -2,6 +2,7 @@
 import { CallToAction } from "@/sections/CallToAction";
 import { FeaturesCards } from "@/sections/FeaturesCards";
 import { FeaturesGridSection } from "@/sections/FeaturesGrid";
+import { Footer } from "@/sections/Footer";
 import { HeaderSection } from "@/sections/Header";
 import { HeroSection } from "@/sections/Hero";
 import { LatestPosts } from "@/sections/LatestPosts";
@@ -26,4 +27,5 @@ const latestPosts = await getCollection('blog').then(posts =>
   <LatestPosts latestPosts={latestPosts}/>
   <Testimonials />
   <CallToAction />
+  <Footer />
 </DefaultLayout>
