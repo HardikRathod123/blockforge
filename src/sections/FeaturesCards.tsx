@@ -1,8 +1,12 @@
-import { GhostButton } from "@/components/GhostButton.";
-import { cn } from "@/lib/utils";
+import { Card, type TColors } from "@/components/Card";
 import path from "path";
 
-const cardsData = [
+const cardsData: {
+    image: string;
+    color: TColors;
+    title: string;
+    description: string;
+}[] = [
     {
         image: "/assets/images/pill.png",
         color: "fuchsia",
@@ -13,21 +17,21 @@ const cardsData = [
     {
         image: "/assets/images/cuboid.png",
         color: "lime",
-        title: "Decentralized data solutions",
+        title: "Decentralized Data Solutions",
         description:
             "Unlock the potential of decentralized data solutions with our innovative tools and services.",
     },
     {
         image: "/assets/images/cone.png",
         color: "cyan",
-        title: "Next-gen smart contracts",
+        title: "Next-Gen Smart Contracts",
         description:
             "Create and deploy next-generation smart contracts with our powerful and intuitive platform.",
     },
     {
         image: "/assets/images/icosahedron.png",
-        color: "violet ",
-        title: "Seamless blockchain integration",
+        color: "violet",
+        title: "Seamless blockchain Integration",
         description:
             "Seamlessly integrate blockchain technology into your existing systems with our powerful tools.",
     },
@@ -43,31 +47,11 @@ export const FeaturesCards = () => {
                     <div className="flex flex-none gap-8">
                         {cardsData.map(
                             ({ title, image, color, description }, index) => (
-                                <div
-                                    className="group relative z-0 max-w-xs p-8 md:max-w-md md:p-10"
+                                <Card
                                     key={title}
+                                    className="max-w-xs pb-[60px] md:max-w-md md:pb-10"
+                                    color={color}
                                 >
-                                    <div
-                                        className={cn(
-                                            "absolute right-1.5 top-1.5 -z-10 size-16 rounded-2xl bg-fuchsia-500 opacity-0 blur-lg transition duration-300 group-hover:opacity-100",
-                                            color === "lime" && "bg-lime-500",
-                                            color === "cyan" && "bg-cyan-500",
-                                            color === "violet" &&
-                                                "bg-violet-500",
-                                        )}
-                                    ></div>
-                                    <div
-                                        className={cn(
-                                            "absolute right-1.5 top-1.5 -z-10 size-16 rounded-2xl bg-fuchsia-500 transition duration-300 group-hover:bg-fuchsia-400",
-                                            color === "lime" &&
-                                                "bg-lime-500 group-hover:bg-lime-400",
-                                            color === "cyan" &&
-                                                "bg-cyan-500 group-hover:bg-cyan-400",
-                                            color === "violet" &&
-                                                "bg-violet-500 group-hover:bg-violet-400",
-                                        )}
-                                    ></div>
-                                    <div className="absolute inset-0 -z-10 rounded-2xl bg-zinc-800 [mask-image:linear-gradient(225deg,transparent,transparent_40px,black_40px)]"></div>
                                     <div className="-mt-28 flex justify-center">
                                         <div className="relative inline-flex">
                                             <div className="absolute top-[calc(100%+16px)] h-4 w-full rounded-[100%] bg-zinc-950/70 transition duration-300 [mask-image:radial-gradient(closest-side,black,transparent)] group-hover:bg-zinc-950/30"></div>
@@ -84,35 +68,7 @@ export const FeaturesCards = () => {
                                     <p className="mt-4 text-lg text-zinc-400">
                                         {description}
                                     </p>
-                                    <div className="mb-7 mt-12 flex justify-between md:mb-0">
-                                        <GhostButton
-                                            className={cn(
-                                                color === "lime" &&
-                                                    "text-lime-500",
-                                                color === "cyan" &&
-                                                    "text-cyan-500",
-                                                color === "violet" &&
-                                                    "text-violet-500",
-                                            )}
-                                        >
-                                            Learn more
-                                        </GhostButton>
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            strokeWidth={2}
-                                            stroke="currentColor"
-                                            className="size-8 -translate-x-2 text-zinc-500 transition duration-300 group-hover:translate-x-0 group-hover:text-zinc-300"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
-                                            />
-                                        </svg>
-                                    </div>
-                                </div>
+                                </Card>
                             ),
                         )}
                     </div>
