@@ -1,0 +1,75 @@
+---
+import { Card } from "@/components/Card";
+import InteriorContent from "@/components/InteriorContent.astro";
+import InteriorHero from "@/components/InteriorHero.astro";
+import { Tag } from "@/components/Tag";
+import DefaultLayout from "@/layouts/Default.astro";
+import {
+    getColorFromPositionCategory,
+    getColorFromPositionType,
+} from "@/lib/postUtils";
+import { getCollection } from "astro:content";
+import { motion } from "framer-motion";
+
+const positions = await getCollection("positions");
+console.log("psotions", positions);
+---
+
+<DefaultLayout>
+    <InteriorHero>
+        <p
+            class="uppercase text-zinc-500 text-center font-extrabold tracking-wider"
+        >
+            Join the team
+        </p>
+        <h1
+            class="font-heading font-black text-5xl md:text-6xl lg:text-7xl text-center mt-4"
+        >
+            We are hiring
+        </h1>
+        <p
+            class="text-xl md:text-2xl mt-6 text-center max-w-xl mx-auto text-zinc-400"
+        >
+            We are always looking for talented individuals passionate about
+            building blockchain products that makes a difference.
+        </p>
+    </InteriorHero>
+    <InteriorContent>
+        <div class="flex flex-col gap-12">
+            {
+                positions.map(
+                    ({
+                        data: { category, description, remote, title, type },
+                    }) => (
+                        <motion.a
+                            href="/contact"
+                            client:load
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.5 }}
+                            transition={{ duration: 0.5, ease: "easeIn" }}
+                        >
+                            <Card
+                                color={getColorFromPositionCategory(category)}
+                                buttonText="Apply now"
+                            >
+                                <div class="flex items-center gap-3">
+                                    {remote && <Tag>Remote</Tag>}
+                                    <Tag color={getColorFromPositionType(type)}>
+                                        {type}
+                                    </Tag>
+                                </div>
+                                <h2 class="font-heading font-black text-3xl mt-6">
+                                    {title}
+                                </h2>
+                                <p class="text-zinc-400 text-xl mt-4">
+                                    {description}
+                                </p>
+                            </Card>
+                        </motion.a>
+                    ),
+                )
+            }
+        </div>
+    </InteriorContent>
+</DefaultLayout>
