@@ -5,9 +5,9 @@ pubDate: "2024-08-03"
 category: Innovation
 slug: "smart-contracts-future-legal-agreements"
 author:
-  name: "John Smith"
-  title: "Sr. Developer - BlockWorld"
-  image: "/assets/images/john.jpg"
+    name: "John Smith"
+    title: "Sr. Developer - BlockWorld"
+    image: "/assets/images/avatar-harry-bender.jpg"
 ---
 
 ## Introduction to Smart Contracts
