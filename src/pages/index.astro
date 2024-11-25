@@ -22,7 +22,7 @@ const latestPosts = await getCollection('blog').then(posts =>
 <DefaultLayout>
   <HeaderSection />
   <HeroSection client:load/>
-  <FeaturesCards />
+  <FeaturesCards client:load />
   <FeaturesGridSection />
   <LatestPosts latestPosts={latestPosts}/>
   <Testimonials />
