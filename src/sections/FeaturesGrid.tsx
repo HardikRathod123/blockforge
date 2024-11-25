@@ -1,5 +1,7 @@
 import { CutCornerButton } from "@/components/CutCornerButton";
 import { GhostButton } from "@/components/GhostButton.";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 const listItems = [
     "Experience unparalleled security and scalability",
@@ -7,6 +9,62 @@ const listItems = [
     "Unlock the potential of decentralized networks",
 ];
 export const FeaturesGridSection = () => {
+    const torusKnotRef = useRef(null);
+    const { scrollYProgress: torusKnotYProgress } = useScroll({
+        target: torusKnotRef,
+        offset: ["start end", "end start"],
+    });
+    const torusKnotTranslateY = useTransform(
+        torusKnotYProgress,
+        [0, 1],
+        [100, -100],
+    );
+    const torusKnotRotate = useTransform(torusKnotYProgress, [0, 1], [30, -30]);
+
+    const firstHemisphereRef = useRef(null);
+    const { scrollYProgress: firstHemisphereScrollYProgress } = useScroll({
+        target: firstHemisphereRef,
+        offset: ["start end", "end start"],
+    });
+    const firstHemisphereTranslateY = useTransform(
+        firstHemisphereScrollYProgress,
+        [0, 1],
+        [50, -50],
+    );
+    const firstHemisphereRotate = useTransform(
+        firstHemisphereScrollYProgress,
+        [0, 1],
+        [-10, -50],
+    );
+
+    const coneRef = useRef(null);
+    const { scrollYProgress: coneScrollYProgress } = useScroll({
+        target: coneRef,
+        offset: ["start end", "end start"],
+    });
+    const coneTranslateY = useTransform(
+        coneScrollYProgress,
+        [0, 1],
+        [100, -100],
+    );
+    const coneRotate = useTransform(coneScrollYProgress, [0, 1], [12, 45]);
+
+    const secondHemisphereRef = useRef(null);
+    const { scrollYProgress: secondHemisphereScrollYProgress } = useScroll({
+        target: secondHemisphereRef,
+        offset: ["start end", "end start"],
+    });
+    const secondHemisphereTranslateY = useTransform(
+        secondHemisphereScrollYProgress,
+        [0, 1],
+        [50, -50],
+    );
+    const secondHemisphereRotate = useTransform(
+        secondHemisphereScrollYProgress,
+        [0, 1],
+        [-25, 10],
+    );
+
     return (
         <section className="overflow-x-clip py-24">
             <div className="container">
@@ -43,15 +101,25 @@ export const FeaturesGridSection = () => {
                         </div>
                         <div className="hidden md:block">
                             <div className="relative z-0 inline-flex">
-                                <img
+                                <motion.img
                                     src="/assets/images/torus-knot.png"
                                     alt="Torus Know 3D image"
                                     className="size-96 max-w-none"
+                                    style={{
+                                        translateY: torusKnotTranslateY,
+                                        rotate: torusKnotRotate,
+                                    }}
+                                    ref={torusKnotRef}
                                 />
-                                <img
+                                <motion.img
                                     src="/assets/images/hemisphere.png"
-                                    alt="Hemisphere 3D image"
+                                    alt="firstHemisphere 3D image"
                                     className="absolute top-3/4 -z-10 size-96 max-w-none -scale-x-[1]"
+                                    style={{
+                                        translateY: firstHemisphereTranslateY,
+                                        rotate: firstHemisphereRotate,
+                                    }}
+                                    ref={firstHemisphereRef}
                                 />
                             </div>
                         </div>
@@ -59,15 +127,25 @@ export const FeaturesGridSection = () => {
                     <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
                         <div className="relative hidden md:block">
                             <div className="absolute right-0 z-0">
-                                <img
+                                <motion.img
                                     src="/assets/images/cone.png"
                                     alt="Cone 3D image"
                                     className="size-96 max-w-none"
+                                    style={{
+                                        translateY: coneTranslateY,
+                                        rotate: coneRotate,
+                                    }}
+                                    ref={coneRef}
                                 />
-                                <img
+                                <motion.img
                                     src="/assets/images/hemisphere.png"
-                                    alt="Hemisphere 3D image"
+                                    alt="firstHemisphere 3D image"
                                     className="absolute top-3/4 -z-10"
+                                    style={{
+                                        translateY: secondHemisphereTranslateY,
+                                        rotate: secondHemisphereRotate,
+                                    }}
+                                    ref={secondHemisphereRef}
                                 />
                             </div>
                         </div>
