@@ -1,5 +1,10 @@
 ---
-import { getCollection } from "astro:content";
+import InteriorContent from "@/components/InteriorContent.astro";
+import InteriorHero from "@/components/InteriorHero.astro";
+import { Tag } from "@/components/Tag";
+import DefaultLayout from "@/layouts/Default.astro";
+import { getPostColorFromCategory } from "@/lib/postUtils";
+import { getCollection, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
     const posts = await getCollection("blog");
@@ -8,10 +13,48 @@ export async function getStaticPaths() {
         props: post,
     }));
 }
-// type Props = CollectionEntry<"blog">;
+type Props = CollectionEntry<"blog">;
 
-// const post = Astro.props;
-// const { Content } = await post.render();
+const post = Astro.props;
+const { Content } = await post.render();
+const {
+    data: { category, title, description, author },
+} = post;
 ---
 
-<div>blog post</div>
+<DefaultLayout>
+    <InteriorHero>
+        <div class="relative">
+            <div class="flex justify-center">
+                <Tag color={getPostColorFromCategory(category)}>{category}</Tag>
+            </div>
+            <h1
+                class="font-heading font-black text-5xl md:text-6xl lg:text-7xl text-center mt-4"
+            >
+                {title}
+            </h1>
+            <p class="text-center text-xl mt-8 text-zinc-400 max-w-2xl mx-auto">
+                {description}
+            </p>
+            <div class="flex flex-col items-center mt-8">
+                <div
+                    class="size-16 rounded-full bg-zinc-700 bg-cover bg-center"
+                    style={{
+                        backgroundImage: `url(${author.image})`,
+                    }}
+                >
+                </div>
+                <div class="text-lg font-extrabold">{author.name}</div>
+                <div class="text-zinc-500">{author.title}</div>
+            </div>
+        </div>
+    </InteriorHero>
+    <InteriorContent>
+        <div
+            class="mx-auto prose prose-invert prose-lg prose-zinc prose-headings:font-heading prose-headings:font-black prose-h2:text-3xl prose-h2:md:text-4xl prose-h2:lg:text-5xl
+            prose-h3:text-2xl prose-h3:md:text-3xl prose-h3:lg:text-4xl"
+        >
+            <Content />
+        </div>
+    </InteriorContent>
+</DefaultLayout>
