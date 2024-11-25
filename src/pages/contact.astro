@@ -1,0 +1,65 @@
+---
+import { CutCornerButton } from "@/components/CutCornerButton";
+import Input from "@/components/Input.astro";
+import InteriorContent from "@/components/InteriorContent.astro";
+import InteriorHero from "@/components/InteriorHero.astro";
+import Textarea from "@/components/Textarea.astro";
+import DefaultLayout from "@/layouts/Default.astro";
+---
+
+<DefaultLayout>
+    <InteriorHero>
+        <p
+            class="uppercase text-zinc-500 text-center font-extrabold tracking-wider"
+        >
+            Let&apos;s talk
+        </p>
+        <h1
+            class="font-heading font-black text-5xl md:text-6xl lg:text-7xl text-center mt-4"
+        >
+            Contact us
+        </h1>
+        <p
+            class="text-xl md:text-2xl mt-6 text-center max-w-xl mx-auto text-zinc-400"
+        >
+            We&apos;re here to help and answer any questions you may have. Reach
+            out to us to learn more about our services,get support or to apply
+            for positions.
+        </p>
+    </InteriorHero>
+    <InteriorContent>
+        <div class="max-w-xl mx-auto">
+            <h2 class="font-heading font-black text-3xl">
+                What can we help you with?
+            </h2>
+            <form
+                name="contact"
+                method="post"
+                data-netlify="true"
+                class="flex flex-col mt-8"
+            >
+                <label for="name" class="mb-1">Name</label>
+                <Input
+                    type="text"
+                    name="name"
+                    id="name"
+                    class="bg-transparent h-12 outline-none w-full px-4"
+                />
+                <label for="email" class="mt-4 mb-1">Email</label>
+                <Input
+                    type="email"
+                    name="email"
+                    id="email"
+                    class="bg-transparent h-12 outline-none w-full px-4"
+                />
+                <label for="message" class="mt-4 mb-1">Message</label>
+                <Textarea
+                    name="message"
+                    id="message"
+                    class="bg-transparent h-12 outline-none w-full px-4 py-3 min-h-32"
+                />
+                <CutCornerButton className="mt-8">Send message</CutCornerButton>
+            </form>
+        </div>
+    </InteriorContent>
+</DefaultLayout>
