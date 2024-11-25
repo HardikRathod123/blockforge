@@ -24,7 +24,7 @@ const latestPosts = await getCollection('blog').then(posts =>
   <HeroSection client:load/>
   <FeaturesCards client:load />
   <FeaturesGridSection client:load/>
-  <LatestPosts latestPosts={latestPosts}/>
+  <LatestPosts latestPosts={latestPosts} client:load/>
   <Testimonials />
   <CallToAction />
   <Footer />

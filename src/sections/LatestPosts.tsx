@@ -4,6 +4,8 @@ import { Tag } from "@/components/Tag";
 import { getPostColorFromCategory } from "@/lib/postUtils";
 import { cn } from "@/lib/utils";
 import type { CollectionEntry } from "astro:content";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 const colors: TColors[] = ["fuchsia", "cyan", "violet", "lime"];
 
@@ -12,6 +14,12 @@ export const LatestPosts = ({
 }: {
     latestPosts: CollectionEntry<"blog">[];
 }) => {
+    const targetRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: targetRef,
+        offset: ["start end", "start center"],
+    });
+    const marginTop = useTransform(scrollYProgress, [0, 1], [0, 64]);
     return (
         <section className="py-60">
             <div className="container">
@@ -54,7 +62,11 @@ export const LatestPosts = ({
                             ),
                         )}
                     </div>
-                    <div className="mt-16 hidden flex-col gap-8 md:flex">
+                    <motion.div
+                        className="mt-16 hidden flex-col gap-8 md:flex"
+                        ref={targetRef}
+                        style={{ marginTop }}
+                    >
                         {latestPosts.map(
                             (
                                 { data: { title, category, description } },
@@ -84,7 +96,7 @@ export const LatestPosts = ({
                                 </Card>
                             ),
                         )}
-                    </div>
+                    </motion.div>
                 </div>
                 <div className="mt-48 flex justify-center md:mt-32">
                     <CutCornerButton>Read the blog</CutCornerButton>
