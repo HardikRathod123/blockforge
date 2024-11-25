@@ -42,7 +42,7 @@ export const Footer = () => {
             <div className="container">
                 <div className="flex items-center justify-between">
                     <div>
-                        <img src="/public/assets/images/logo.svg" alt="" />
+                        <img src="/assets/images/logo.svg" alt="" />
                     </div>
                     <nav className="hidden gap-12 font-heading font-black text-zinc-500 md:flex">
                         <a href="#">Home</a>

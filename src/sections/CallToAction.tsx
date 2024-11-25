@@ -35,7 +35,7 @@ export const CallToAction = () => {
                             animate
                         >
                             <motion.img
-                                src="/public/assets/images/cuboid.png"
+                                src="/assets/images/cuboid.png"
                                 alt="Cuboid 3D image"
                                 className="size-36"
                                 style={{ rotate }}
@@ -48,7 +48,7 @@ export const CallToAction = () => {
                             animate
                         >
                             <motion.img
-                                src="/public/assets/images/cylinder.png"
+                                src="/assets/images/cylinder.png"
                                 alt="Cylinder 3D image"
                                 className="size-36"
                                 style={{ rotate }}
