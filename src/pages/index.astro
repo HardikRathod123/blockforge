@@ -25,7 +25,7 @@ const latestPosts = await getCollection('blog').then(posts =>
   <FeaturesCards client:load />
   <FeaturesGridSection client:load/>
   <LatestPosts latestPosts={latestPosts} client:load/>
-  <Testimonials />
+  <Testimonials client:load/>
   <CallToAction />
   <Footer />
 </DefaultLayout>
